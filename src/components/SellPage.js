@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import SellerComponent from './SellerComponent'
+import { themeContext } from './ThemeContextProvider'
 
 
 export default function SellPage() {
-    
+    const {Theme} = useContext(themeContext)
     const [sellList,setSellList] =useState("")
    
     useEffect(() => {
@@ -23,7 +24,7 @@ export default function SellPage() {
         getList();
     }, [])
     return (
-        <div className='seller-card-container'>
+        <div className={`seller-card-container ${Theme}`}>
            {/* <aside>Bar</aside> */}
             {sellList?sellList.map((value)=>(<div>
                 <SellerComponent id={value.id} description={value.description} price={value.price} title={value.title} userId={value.userId}/>

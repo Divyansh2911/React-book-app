@@ -18,7 +18,7 @@ const reducer = (state, action) => {
 }
 export default function CreateItem() {
     const navigate = useNavigate();
-    const { user, setUser } = useContext(themeContext)
+    const { user, setUser ,Theme} = useContext(themeContext)
     console.log(user.userId)
     const [state, dispatch] = useReducer(reducer, {
         loading: false,
@@ -57,7 +57,7 @@ export default function CreateItem() {
     },[createdItem])
   return (
     <div>
-         <div className='form-container'>
+         <div className={`form-container ${Theme}`}>
             <h1>Sign up!</h1>
             <div className='form'>
                 <div className='header-items-login'>

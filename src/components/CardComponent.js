@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import CardRating from './CardRating';
 
 export default function CardComponent(props) {
     // console.log(props.isbn)
@@ -21,7 +22,8 @@ export default function CardComponent(props) {
                 <div className='inner-info-container'>
                     <div className='rating'>
                         <div className='rating-item'>
-                            {props.rating ? <span><strong>Rating: </strong>{props.rating}/5  &#40;{props.ratingCount ? <span>{props.ratingCount}</span> : ""}&#41;</span> : ""}
+                        
+                            {props.rating ? <span><strong>Rating:</strong><div className='rating-star'><CardRating rating={props.rating}/> </div> &#40;{props.ratingCount ? <span>{props.ratingCount}</span> : ""}&#41;</span> : ""}
                         </div>
                         <div className='rating-item'>
                             {props.publishDate ? <span><strong>Publish Date : </strong>{props.publishDate} </span> : ""}

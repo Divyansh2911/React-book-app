@@ -12,16 +12,19 @@ import UserProfile from './components/UserProfile';
 import SignupPage from './components/SignupPage';
 import CreateItem from './components/CreateItem';
 import SellPage from './components/SellPage';
+import ToggleNavbar from './components/ToggleNavbar';
 
 
 
 function App() {
   const {Theme} = useContext(themeContext)
   return (
+    <div className='container'>
    <BrowserRouter>
+   {/* <Navbar/> */}
+   <ToggleNavbar/>
    <div className= {`All-container ${Theme}`}>
-   <Navbar/>
-   </div>
+   
     
    <Routes>
     <Route path='/'  element={<Home/>}/>
@@ -35,7 +38,9 @@ function App() {
       {/* <Route path='/viewer/' */}
     </Route> 
    </Routes>
+   </div>
    </BrowserRouter>
+    </div>
   );
 }
 

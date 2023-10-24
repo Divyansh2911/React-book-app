@@ -34,8 +34,8 @@ const users_Schema = new mongoose.Schema({
 )
 const users_Model = mongoose.model('users_Model', users_Schema)
 
-const item_Schema = new mongoose.Schema({
-    userId: { type: Number, required: true },
+const items_Schema = new mongoose.Schema({
+    userId: { type: Number },
     title: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
@@ -44,7 +44,7 @@ const item_Schema = new mongoose.Schema({
 }, {
     timestamps: true
 })
-const item_Model = mongoose.model('item_Model', item_Schema)
+const items_Model = mongoose.model('items_Model', items_Schema)
 
 
 
@@ -113,7 +113,7 @@ const editUser = async (req, res) => {
 
 const getItems = async (req, res) => {
     try {
-        const items = await item_Model.find({});
+        const items = await items_Model.find({});
         res.send(items)
     }
     catch (err) {
@@ -125,7 +125,7 @@ const createItems = async (req, res) => {
     // console.log(req.body)
     try {
         if (userId && title && description && price && id) {
-            const createdItem = await item_Model.create(req.body)
+            const createdItem = await items_Model.create(req.body)
             res.send(createdItem);
         }
         else {

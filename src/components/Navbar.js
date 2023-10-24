@@ -7,7 +7,7 @@ export default function Navbar() {
   const {Theme , ToggleTheme,user} = useContext(themeContext);
   return (
     
-    <div className='Nav-Container'>
+    <div className={`Nav-Container ${Theme}`}>
       
         <div className='nav-items'>
            <Link to={'/'}><span className='nav-title'>MyBook</span></Link>
@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className='nav-items'>
             {user?(<div>
               
-              <Link to={'/viewer/user'} className='side-link'><i class="fa-solid fa-user fa-beat" ></i>{user.userName}</Link>
+              <Link to={'/viewer/user'} className='side-link'><i class="fa-solid fa-user fa-beat" ></i>{` ${user.userName}`}</Link>
               <Link to={'/viewer/create'} className='side-link'><i class="fa-solid fa-dollar-sign fa-beat"></i>Sell Book</Link>
             </div>
               

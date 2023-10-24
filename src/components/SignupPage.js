@@ -17,7 +17,7 @@ const reducer = (state, action) => {
 }
 export default function SignupPage() {
     const navigate = useNavigate();
-    const { user, setUser } = useContext(themeContext)
+    const { user, setUser ,Theme} = useContext(themeContext)
     const [state, dispatch] = useReducer(reducer, {
         loading: false,
         success: false,
@@ -64,7 +64,7 @@ export default function SignupPage() {
         }
     }, [signedInUser])
     return (
-        <div className='form-container'>
+        <div className={`form-container ${Theme}`}>
             <h1>Sign up!</h1>
             <div className='form'>
                 <div className='header-items-login'>
