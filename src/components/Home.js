@@ -1,3 +1,4 @@
+  // "proxy": "https://backend1-smki.onrender.com",
 import React, { useContext } from 'react'
 import { themeContext } from './ThemeContextProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
