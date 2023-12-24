@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { themeContext } from './ThemeContextProvider'
 import axios from 'axios'
+import { HashLink } from 'react-router-hash-link'
 
 
 const initialState = {
@@ -24,15 +25,16 @@ const reducer = (state, action) => {
 }
 export default function HomeComponent() {
   const navigate = useNavigate();
-  const { user, setUser, Theme } = useContext(themeContext);
+  const { user, setUser, Theme, bookName, setBookName } = useContext(themeContext);
+  console.log(bookName)
   const [state, dispatch] = useReducer(reducer, initialState)
   const { loading, success, result, error } = state;
   const [searchValue, setSearchValue] = useState("");
   const fetchData = async () => {
     dispatch({ type: "BOOK_REQUEST" });
     try {
-      console.log(searchValue)
-      const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchValue}&key=AIzaSyBAK41g6Wr2wp77in00aPT_vtiTw2nxDXc&maxResults=20`)
+      // console.log(searchValue)
+      const { data } = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchValue}&key=AIzaSyC0CDq8lSViFqMqPUpnN3uzbq6XcivXnvY&maxResults=20`)
       console.log(data.items)
       dispatch({ type: "BOOK_SUCCESS", payload: data.items });
     }
@@ -41,12 +43,16 @@ export default function HomeComponent() {
     }
   }
 
+
   useEffect(() => {
+
     fetchData();
-  }, [searchValue])
+    console.log(bookName)
+  }, [searchValue, bookName])
+
   return (
-    <div className='search-form'>
-    <i class="fa-solid fa-spinner fa-fade"></i>
+    <div className='search-form' id='form'>
+      {/* <i class="fa-solid fa-spinner fa-beat-fade fa-xl" style={{color: "#FFFFFF",}}></i> */}
       <h3>Find Books of your choice</h3>
       <p> Best place to find book , where u can buy or sell books on your own </p>
       <div className='home-search-container'>
@@ -60,16 +66,25 @@ export default function HomeComponent() {
         </div>
 
       </div>
-      
-      {loading && <div className='search-results'><i className='loading-icon' class="fa-solid fa-spinner fa-fade "></i></div>}
+
+      {loading && <i class="fa-solid fa-spinner fa-beat-fade fa-xl" style={{ color: "#FFFFFF", }}></i>}
       {error && <span></span>}
       {success && searchValue && result ? <div className='search-results'>
-        {/* <p><i>Suggested books</i></p> */}
+        <p>Suggested books</p>
         <ul>
-          {console.log(result)}
+          {/* {console.log(result)} */}
           {result.map((value, index) => (
 
-            <li key={index}><button className='resultButton'>{value.volumeInfo.title}</button></li>
+            <li key={index}>
+              
+              <HashLink scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: 'start' })} to="#search">
+                <button className='resultButton' onClick={() => {
+                  const newBookName = value.volumeInfo.title;
+                  setBookName(newBookName);}}>
+                  {value.volumeInfo.title}
+                </button>
+              </HashLink>
+            </li>
           ))}
         </ul>
       </div>
