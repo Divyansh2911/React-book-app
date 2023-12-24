@@ -1,6 +1,5 @@
 {
   "name": "react-book-app",
-  "proxy": "https://backend2-zxsv.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

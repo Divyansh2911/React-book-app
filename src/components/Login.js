@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { themeContext } from './ThemeContextProvider';
 import image from '../images/user-image.jpg'
 
-// const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://backend2-zxsv.onrender.com"
 const initialState={
     loading:false,
     success:false,
@@ -35,7 +35,7 @@ export default function Login() {
         dispatch({type:"LOGIN_REQUEST"})
         try{
             // const {data} = await axios.get(`https://backend1-smki.onrender.com/api/users?email=${email}&password=${password}`);
-            const {data} = await axios.get(`/api/users?email=${email}&password=${password}`);
+            const {data} = await axios.get(`${baseUrl}/api/users?email=${email}&password=${password}`);
             if(data.length>0){
                 localStorage.setItem('bookUser',JSON.stringify(data[0]))
                 dispatch({type:"LOGIN_SUCCESS",payload:data[0]})
