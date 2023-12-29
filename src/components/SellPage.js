@@ -7,7 +7,7 @@ import Carousel from "./Carousel";
 import sellImage from '../images/sell-image/42589.jpg'
 import carousel from "../images/Carousel.png"
 
-
+const baseUrl = "https://backend2-zxsv.onrender.com"
 
 export default function SellPage() {
     const { Theme } = useContext(themeContext)
@@ -26,7 +26,7 @@ export default function SellPage() {
         const getList = async () => {
             // dispatch({ type: "LIST_REQUEST" })
             try {
-                const { data } = await axios.get("/api/items")
+                const { data } = await axios.get(`${baseUrl}/api/items`)
 
                 console.log(data)
                 setSellList(data)

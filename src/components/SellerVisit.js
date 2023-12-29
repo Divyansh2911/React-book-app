@@ -7,6 +7,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MapWindow from '../sub-component/MapWindow';
 
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 export default function SellerVisit(props) {
 
   const { Theme } = useContext(themeContext)
@@ -22,10 +24,10 @@ export default function SellerVisit(props) {
       // dispatch({ type: "LIST_REQUEST" })
 
       try {
-        const { data } = await axios.get("/api/items/own/" + id)
+        const { data } = await axios.get(`${baseUrl}/api/items/own/` + id)
         console.log(data)
         setSellList(data)
-        const {data: seller} = await axios.get('/api/users/'+data.userId)
+        const {data: seller} = await axios.get(`${baseUrl}/api/users/`+data.userId)
         console.log(seller)
         setSeller(seller)
         // dispatch({type:"LIST_SUCCESS",payload:data})

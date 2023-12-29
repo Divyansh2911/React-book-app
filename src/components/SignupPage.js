@@ -5,6 +5,8 @@ import { themeContext } from './ThemeContextProvider';
 import image from '../images/user-image.jpg'
 import MapComponenetRegisterPage from '../sub-component/MapComponentRegisterPage';
 
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "SIGN_IN_REQUEST":
@@ -38,7 +40,7 @@ export default function SignupPage() {
         e.preventDefault();
         dispatch({ type: "SIGN_IN_REQUEST" })
         try {
-            const { data } = await axios.post('/api/users', {
+            const { data } = await axios.post(`${baseUrl}/api/users`, {
                 userId: Math.floor(Math.random() * 1000000),
                 userName: userName,
                 first_name: first_name,

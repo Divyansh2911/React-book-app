@@ -6,7 +6,7 @@ import axios from 'axios';
 import SellSearchBar from './SellSearchBar';
 import sellImage from '../images/sell-image/42589.jpg'
 
-
+const baseUrl = "https://backend2-zxsv.onrender.com"
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -61,7 +61,7 @@ export default function CreateItem() {
         dispatch({ type: "Create_Item_REQUEST" });
         
         try {
-            const { data } = await axios.post('/api/items', {
+            const { data } = await axios.post(`${baseUrl}/api/items`, {
                 userId: user.userId,
                 mainTitle: mainTitle,
                 subTitle: subTitle,

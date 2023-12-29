@@ -3,6 +3,9 @@ import {LoadScript,GoogleMap,StandaloneSearchBox,Marker} from '@react-google-map
 import { themeContext } from './ThemeContextProvider'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 const libs = ['places']
 const defaultLocation = {lat:45.516 , lng: -73.56}
 export default function MapScreen() {
@@ -44,7 +47,7 @@ export default function MapScreen() {
     // e.preventDefault();
    
     try {
-      const { data } = await axios.put('/api/users/'+user.userId, {
+      const { data } = await axios.put(`${baseUrl}/api/users/`+user.userId, {
         userName: user.userName,
         first_name: user.first_name,
         last_name: user.last_name,

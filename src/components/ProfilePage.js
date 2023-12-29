@@ -13,7 +13,7 @@ import EditPassword from '../sub-component/EditPassword';
 import { confirmWrapper, confirm } from '../sub-component/Confirm'
 // import MapAddress from '../sub-component/MapAddress';
 
-
+const baseUrl = "https://backend2-zxsv.onrender.com"
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -82,7 +82,7 @@ export default function ProfilePage() {
     e.preventDefault();
     dispatch({ type: "UPDATE_REQUEST" })
     try {
-      const { data } = await axios.put('/api/users/' + user.userId, {
+      const { data } = await axios.put(`${baseUrl}/api/users/` + user.userId, {
         userName: userName,
         first_name: first_name,
         last_name: last_name,

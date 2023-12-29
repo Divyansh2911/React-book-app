@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 export default function ProfileComponent(props) {
       const {Profile,setProfile} = props
       console.log(props)

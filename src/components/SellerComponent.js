@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { themeContext } from './ThemeContextProvider'
 import axios from 'axios'
 
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 export default function SellerComponent(props) {
   const { Theme ,user} = useContext(themeContext)
   const [seller,setSeller] = useState("")
@@ -15,7 +17,7 @@ export default function SellerComponent(props) {
     const getList = async () => {
         // dispatch({ type: "LIST_REQUEST" })
         try {
-            const {data:sellerUser} = await axios.get('/api/users/'+props.userId)
+            const {data:sellerUser} = await axios.get(`${baseUrl}/api/users/`+props.userId)
             setSeller(sellerUser);
             // dispatch({type:"LIST_SUCCESS",payload:data})
         }

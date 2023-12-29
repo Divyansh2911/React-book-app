@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { themeContext } from '../components/ThemeContextProvider';
 import imageUser from '../images/user-image.jpg'
 
+const baseUrl = "https://backend2-zxsv.onrender.com"
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_REQUEST":
@@ -40,7 +42,7 @@ export default function EditAddress() {
     e.preventDefault();
     dispatch({ type: "UPDATE_REQUEST" })
     try {
-      const { data } = await axios.put('/api/users/' + user.userId, {
+      const { data } = await axios.put(`${baseUrl}/api/users/` + user.userId, {
         userName: userName,
         first_name: first_name,
         last_name: last_name,
