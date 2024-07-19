@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { themeContext } from './ThemeContextProvider';
+import image from '../images/user-image.jpg'
+import MapComponenetRegisterPage from '../sub-component/MapComponentRegisterPage';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -30,7 +32,7 @@ export default function SignupPage() {
     const [last_name, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [address, setAddress] = useState("");
+    const [address, setAddress] = useState({lat:"",lng:""});
     const [password, setPassword] = useState("");
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,7 +46,7 @@ export default function SignupPage() {
                 phone: phone,
                 email: email,
                 password: password,
-                address: address
+                address: address,
 
             })
             console.log(data)
@@ -69,53 +71,54 @@ export default function SignupPage() {
             <div className='form'>
                 <div className='header-items-login'>
                     <div className='log-image-container'>
-                        <img src='../../user-image.jpg' alt='error' />
+                        <img src={image} alt='error' />
                     </div>
                     <h3>Create Account</h3>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className='form-item'>
                         <label htmlFor='username'>
-                            UserName:
+                        <i class="fa-solid fa-user-secret fa-lg"></i> UserName:
                         </label>
                         <input type='text' required value={userName} name='username' onChange={(e) => { setUserName(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='firstName'>
-                            First Name:
+                        <i class="fa-solid fa-user"></i> First Name:
                         </label>
                         <input type='text' required value={first_name} name='firstName' onChange={(e) => { setFirstName(e.target.value) }} />
                     </div>
 
                     <div className='form-item'>
                         <label htmlFor='lastName'>
-                            Last Name:
+                        <i class="fa-solid fa-user"></i>  Last Name:
                         </label>
                         <input type='text' required value={last_name} name='lastName' onChange={(e) => { setLastName(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='email'>
-                            Email:
+                        <i class="fa-solid fa-envelope"></i>   Email:
                         </label>
                         <input type='email' required value={email} name='name' onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='phone'>
-                            Phone:
+                        <i class="fa-solid fa-phone"></i>  Phone:
                         </label>
                         <input type='number' required value={phone} name='phone' onChange={(e) => { setPhone(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='password'>
-                            Password:
+                        <i class="fa-solid fa-lock"></i>  Password:
                         </label>
                         <input type='password' required value={password} name='password' onChange={(e) => { setPassword(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='address'>
-                            Address:
+                        <i class="fa-solid fa-house"></i>  Address:
                         </label>
-                        <textarea rows={4} required value={address} name='address' onChange={(e) => { setAddress(e.target.value) }} />
+                        {/* <textarea rows={4} required value={address} name='address' onChange={(e) => { setAddress(e.target.value) }} /> */}
+                        <div className='map-signup-page' style={{width:'100%'}}><MapComponenetRegisterPage address = {address} setAddress={setAddress}/></div>
                     </div>
                     {loading &&
                         <div className='form-item-button'>

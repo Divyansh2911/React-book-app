@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { themeContext } from './ThemeContextProvider';
+import image from '../images/user-image.jpg'
 
 const initialState={
     loading:false,
@@ -57,20 +58,20 @@ export default function Login() {
             <div className='form'>
                 <div className='header-items-login'>
                     <div className='log-image-container'>
-                        <img src='../../user-image.jpg' alt='error'/>
+                        <img src={image} alt='error'/>
                     </div>
                     <h3>Log-in to your account</h3>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className='form-item'>
                         <label htmlFor='email'>
-                            Email:
+                        <i class="fa-solid fa-envelope"></i> Email:
                         </label>
                         <input type='email' id='email' required value={email} name='name' onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                     <div className='form-item'>
                         <label htmlFor='password'>
-                            Password:
+                        <i class="fa-solid fa-lock"></i> Password:
                         </label>
                         <input type='password' required value={password} name='password' onChange={(e) => { setPassword(e.target.value) }} />
                     </div>

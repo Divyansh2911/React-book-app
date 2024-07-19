@@ -5,19 +5,31 @@ import Navbar from './Navbar'
 import BooksComponent from './BooksComponent'
 import BookViewer from './BookViewer'
 import HomeComponent from './HomeComponent'
+import Footer from './Footer'
+import HomeMiddleComponent from './HomeMiddleComponent'
+import HomeMiddleComponent2 from './HomeMiddleComponent2'
+// import Fade from 'react-reveal/Fade'
 
 export default function Home() {
   const { Theme } = useContext(themeContext)
   return (
-    <div className={`All-container ${Theme}`}>
-
+    <div >
       <div className='home-header'>
-        <HomeComponent />
+        
+          <HomeComponent />
+     
       </div>
 
 
       <div>
         <BooksComponent />
+      </div>
+      <div>
+        <h1 id='about' style={{ width: '100%', textAlign: 'center', margin: '7px auto 0px auto' }}>About</h1>
+        <HomeMiddleComponent />
+      </div>
+      <div>
+        <HomeMiddleComponent2 />
       </div>
 
       {/* <Routes>
