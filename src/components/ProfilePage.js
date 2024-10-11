@@ -13,7 +13,7 @@ import EditPassword from '../sub-component/EditPassword';
 import { confirmWrapper, confirm } from '../sub-component/Confirm'
 // import MapAddress from '../sub-component/MapAddress';
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 const reducer = (state, action) => {
   switch (action.type) {

@@ -6,7 +6,7 @@ import axios from 'axios';
 import SellSearchBar from './SellSearchBar';
 import sellImage from '../images/sell-image/42589.jpg'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -210,7 +210,7 @@ export default function CreateItem() {
                             <label></label>
                             <span className='error'>Error : {error.message}</span>
                         </div>}
-                        {error && error.response.status===413 && <span className='error'>File size too large</span>}
+                        {error  && <span className='error'>File size too large</span>}
                         {success && <div>
                             <label></label>
                             <span className='success'>Book successfully added to sell.</span>

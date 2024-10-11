@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { themeContext } from '../components/ThemeContextProvider'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 export default function Orders() {
   const [items,setItems] = useState([])

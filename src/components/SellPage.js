@@ -7,7 +7,7 @@ import Carousel from "./Carousel";
 import sellImage from '../images/sell-image/42589.jpg'
 import carousel from "../images/Carousel.png"
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 export default function SellPage() {
     const { Theme } = useContext(themeContext)

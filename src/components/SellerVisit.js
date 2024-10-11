@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MapWindow from '../sub-component/MapWindow';
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 export default function SellerVisit(props) {
 

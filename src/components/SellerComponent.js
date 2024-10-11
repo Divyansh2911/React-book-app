@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { themeContext } from './ThemeContextProvider'
 import axios from 'axios'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 export default function SellerComponent(props) {
   const { Theme ,user} = useContext(themeContext)

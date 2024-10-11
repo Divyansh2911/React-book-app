@@ -5,7 +5,7 @@ import { themeContext } from './ThemeContextProvider';
 import image from '../images/user-image.jpg'
 import MapComponenetRegisterPage from '../sub-component/MapComponentRegisterPage';
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 const reducer = (state, action) => {
     switch (action.type) {

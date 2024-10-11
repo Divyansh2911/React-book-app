@@ -4,7 +4,7 @@ import { themeContext } from './ThemeContextProvider'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 const libs = ['places']
 const defaultLocation = {lat:45.516 , lng: -73.56}

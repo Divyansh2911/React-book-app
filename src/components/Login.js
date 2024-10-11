@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { themeContext } from './ThemeContextProvider';
 import image from '../images/user-image.jpg'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 const initialState={
     loading:false,
     success:false,

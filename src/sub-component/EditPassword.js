@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { themeContext } from '../components/ThemeContextProvider';
 import imageUser from '../images/user-image.jpg'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 const reducer = (state, action) => {
     switch (action.type) {

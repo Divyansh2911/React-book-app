@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const baseUrl = "https://backend2-zxsv.onrender.com"
+const baseUrl = "https://c2c-nu.vercel.app"
 
 export default function ProfileComponent(props) {
       const {Profile,setProfile} = props
