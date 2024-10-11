@@ -51,7 +51,7 @@ export default function Login() {
     useEffect(()=>{
         if(loggedInUser){
             setUser(loggedInUser)
-            return navigate("/viewer/user")
+            return navigate("/viewer/user");
         }
     },[loggedInUser])
     return (
