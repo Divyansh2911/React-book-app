@@ -26,6 +26,7 @@ export default function SellerComponent(props) {
         }
     }
     getList();
+    console.log(user);
 }, [])
   return (
     <Link to={`/sell/seller/${props.id}`}>
@@ -36,7 +37,8 @@ export default function SellerComponent(props) {
         <span><small>-{props.author}</small></span>
         <span style={{margin:"17px 0px" , fontWeight:"500"}}>Seller - {seller.userName}</span>
         {/* <span>Seller - {user.userName}</span> */}
-        <small style={{height:"100%", display:"flex" , justifyContent:"center" , alignItems:"end"}}>-{user.createdAt}</small> 
+        {/* <small style={{height:"100%", display:"flex" , justifyContent:"center" , alignItems:"end"}}>-{user.createdAt}</small> 
+   */}
       </div>
       
       <div className='seller-purchase-content' style={{display:"flex" , justifyContent:"center" , alignItems:"center"}} >

@@ -41,7 +41,7 @@ export default function SignupPage() {
         dispatch({ type: "SIGN_IN_REQUEST" })
         try {
             const { data } = await axios.post(`${baseUrl}/api/users`, {
-                userId: Math.floor(Math.random() * 1000000),
+                userId: Math.floor(100000 + Math.random() * 900000),
                 userName: userName,
                 first_name: first_name,
                 last_name: last_name,
