@@ -19,7 +19,7 @@ Installation
 sh
 Copy
 Edit
-git clone https://github.com/yourusername/Bookie.git
+git clone https://github.com/Divyansh2911/React-book-app.git
 cd Bookie
 npm install
 Usage
